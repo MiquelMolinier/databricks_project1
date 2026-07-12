@@ -1,0 +1,56 @@
+# This is a Databricks asset bundle definition for project.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+bundle:
+  name: dmc_final
+  uuid: 982a64e2-a92c-4a74-95ca-3c5abb58e5a0
+
+include:
+  - resources/*.yml
+
+# Variable declarations. These variables are assigned in the dev/prod targets below.
+variables:
+  catalog:
+    description: The catalog to use
+  schema:
+    description: The schema to use
+  bronze_schema:
+    description: bronze schema to use
+  silver_schema:
+    description: silver schema to use
+  gold_schema:
+    description: gold schema to use
+  landing_schema:
+    description: Landing schema to use
+  landing_volume:
+    description: Landing volume to use
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-b35e066b-38eb.cloud.databricks.com
+    variables:
+      catalog: proyecto_final
+      schema: dev
+      bronze_schema: bronze_dev
+      silver_schema: silver_dev
+      gold_schema: gold_dev
+      landing_schema: landing
+      landing_volume: raw_data
+  prod:
+    mode: production
+    workspace:
+      host: https://dbc-b35e066b-38eb.cloud.databricks.com
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      catalog: proyecto_final
+      schema: prod
+      bronze_schema: bronze
+      silver_schema: silver
+      gold_schema: gold
+      landing_schema: landing
+      landing_volume: raw_data
+    permissions:
+      - user_name: ${workspace.current_user.userName}
+        level: CAN_MANAGE

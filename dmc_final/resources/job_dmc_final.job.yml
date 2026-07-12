@@ -1,0 +1,17 @@
+resources:
+  jobs:
+    job_dmc_final:
+      name: job_dmc_final
+      tasks:
+        - task_key: setup_env
+          notebook_task:
+            notebook_path: ../src/init/setup.ipynb
+        - task_key: declarative_pipeline
+          depends_on:
+            - task_key: setup_env
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.pipeline_dmc_final.id}
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
+

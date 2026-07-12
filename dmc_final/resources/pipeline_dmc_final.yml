@@ -1,0 +1,21 @@
+resources:
+  pipelines:
+    pipeline_dmc_final:
+      name: pipeline_dmc_final
+      libraries:
+        - glob:
+            include: ../src/pipeline_dmc_final/transformations/**
+      channel: CURRENT
+      catalog: ${var.catalog}
+      schema: ${var.schema}
+      serverless: true
+      root_path: "../src/pipeline_dmc_final"
+      configuration:
+        LANDING_SCHEMA: ${var.landing_schema}
+        BRONZE_SCHEMA: ${var.bronze_schema}
+        SILVER_SCHEMA: ${var.silver_schema}
+        GOLD_SCHEMA: ${var.gold_schema}
+        CATALOG: ${var.catalog}
+        LANDING_VOLUME: ${var.landing_volume}
+        PROJECT_NAME: ${bundle.name}
+

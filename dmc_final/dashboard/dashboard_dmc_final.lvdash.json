@@ -1,0 +1,732 @@
+{
+  "datasets": [
+    {
+      "name": "fdd778c3",
+      "displayName": "dim_cliente",
+      "config": {
+        "version": "1.1",
+        "source": "proyecto_final.gold.dim_cliente",
+        "dimensions": [
+          {
+            "name": "customer_id",
+            "expr": "source.customer_id",
+            "displayName": "Customer Id"
+          },
+          {
+            "name": "nombre",
+            "expr": "source.nombre",
+            "displayName": "Nombre"
+          },
+          {
+            "name": "apellido",
+            "expr": "source.apellido",
+            "displayName": "Apellido"
+          },
+          {
+            "name": "email",
+            "expr": "source.email",
+            "displayName": "Email"
+          },
+          {
+            "name": "ciudad",
+            "expr": "source.ciudad",
+            "displayName": "Ciudad"
+          },
+          {
+            "name": "pais",
+            "expr": "source.pais",
+            "displayName": "Pais"
+          },
+          {
+            "name": "fecha_registro",
+            "expr": "source.fecha_registro",
+            "displayName": "Fecha Registro"
+          },
+          {
+            "name": "segmento",
+            "expr": "source.segmento",
+            "displayName": "Segmento"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "d299c291",
+      "displayName": "dim_fecha",
+      "config": {
+        "version": "1.1",
+        "source": "proyecto_final.gold.dim_fecha",
+        "dimensions": [
+          {
+            "name": "date_id",
+            "expr": "source.date_id",
+            "displayName": "Date Id"
+          },
+          {
+            "name": "fecha",
+            "expr": "source.fecha",
+            "displayName": "Fecha"
+          },
+          {
+            "name": "anio",
+            "expr": "source.anio",
+            "displayName": "Anio"
+          },
+          {
+            "name": "trimestre",
+            "expr": "source.trimestre",
+            "displayName": "Trimestre"
+          },
+          {
+            "name": "mes",
+            "expr": "source.mes",
+            "displayName": "Mes"
+          },
+          {
+            "name": "dia",
+            "expr": "source.dia",
+            "displayName": "Dia"
+          },
+          {
+            "name": "semana",
+            "expr": "source.semana",
+            "displayName": "Semana"
+          },
+          {
+            "name": "nombre_dia",
+            "expr": "source.nombre_dia",
+            "displayName": "Nombre Dia"
+          },
+          {
+            "name": "dia_semana",
+            "expr": "source.dia_semana",
+            "displayName": "Dia Semana"
+          },
+          {
+            "name": "dia_anio",
+            "expr": "source.dia_anio",
+            "displayName": "Dia Anio"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "e447ab45",
+      "displayName": "dim_producto",
+      "config": {
+        "version": "1.1",
+        "source": "proyecto_final.gold.dim_producto",
+        "dimensions": [
+          {
+            "name": "product_id",
+            "expr": "source.product_id",
+            "displayName": "Product Id"
+          },
+          {
+            "name": "nombre_producto",
+            "expr": "source.nombre_producto",
+            "displayName": "Nombre Producto"
+          },
+          {
+            "name": "categoria",
+            "expr": "source.categoria",
+            "displayName": "Categoria"
+          },
+          {
+            "name": "subcategoria",
+            "expr": "source.subcategoria",
+            "displayName": "Subcategoria"
+          },
+          {
+            "name": "precio_unitario",
+            "expr": "source.precio_unitario",
+            "displayName": "Precio Unitario"
+          },
+          {
+            "name": "proveedor",
+            "expr": "source.proveedor",
+            "displayName": "Proveedor"
+          },
+          {
+            "name": "stock_actual",
+            "expr": "source.stock_actual",
+            "displayName": "Stock Actual"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "2a3f5ec5",
+      "displayName": "fact_ventas",
+      "config": {
+        "source": "proyecto_final.gold.fact_ventas",
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          },
+          {
+            "name": "SUM_TOTAL",
+            "expr": "SUM(total_pedido)",
+            "displayName": "SUM TOTAL"
+          },
+          {
+            "name": "SUM QTY",
+            "expr": "SUM(source.cantidad)",
+            "displayName": "SUM QTY"
+          }
+        ],
+        "version": "1.1",
+        "dimensions": [
+          {
+            "name": "order_item_id",
+            "expr": "source.order_item_id",
+            "displayName": "Order Item Id"
+          },
+          {
+            "name": "order_id",
+            "expr": "source.order_id",
+            "displayName": "Order Id"
+          },
+          {
+            "name": "customer_id",
+            "expr": "source.customer_key",
+            "displayName": "Customer Id"
+          },
+          {
+            "name": "product_id",
+            "expr": "source.product_key",
+            "displayName": "Product Id"
+          },
+          {
+            "name": "fecha_pedido",
+            "expr": "source.fecha_pedido",
+            "displayName": "Fecha Pedido"
+          },
+          {
+            "name": "date_id",
+            "expr": "source.date_key",
+            "displayName": "Date Id"
+          },
+          {
+            "name": "canal_venta",
+            "expr": "source.canal_venta",
+            "displayName": "Canal Venta"
+          },
+          {
+            "name": "estado_pedido",
+            "expr": "source.estado_pedido",
+            "displayName": "Estado Pedido"
+          },
+          {
+            "name": "total_pedido",
+            "expr": "source.total_pedido",
+            "displayName": "Total Pedido"
+          },
+          {
+            "name": "cantidad",
+            "expr": "source.cantidad",
+            "displayName": "Cantidad"
+          },
+          {
+            "name": "precio_unitario",
+            "expr": "source.precio_unitario",
+            "displayName": "Precio Unitario"
+          },
+          {
+            "name": "descuento",
+            "expr": "source.descuento",
+            "displayName": "Descuento"
+          },
+          {
+            "name": "ciudad",
+            "expr": "dim_cliente.ciudad"
+          },
+          {
+            "name": "pais",
+            "expr": "dim_cliente.pais"
+          },
+          {
+            "name": "segmento",
+            "expr": "dim_cliente.segmento"
+          },
+          {
+            "name": "fecha",
+            "expr": "dim_fecha.fecha"
+          },
+          {
+            "name": "anio",
+            "expr": "dim_fecha.anio"
+          },
+          {
+            "name": "trimestre",
+            "expr": "dim_fecha.trimestre"
+          },
+          {
+            "name": "categoria",
+            "expr": "dim_producto.categoria"
+          },
+          {
+            "name": "subcategoria",
+            "expr": "dim_producto.subcategoria"
+          },
+          {
+            "name": "proveedor",
+            "expr": "dim_producto.proveedor"
+          },
+          {
+            "name": "stock_actual",
+            "expr": "dim_producto.stock_actual"
+          }
+        ],
+        "joins": [
+          {
+            "name": "dim_cliente",
+            "source": "proyecto_final.gold.dim_cliente",
+            "on": "source.customer_key = dim_cliente.customer_id"
+          },
+          {
+            "name": "dim_fecha",
+            "source": "proyecto_final.gold.dim_fecha",
+            "on": "source.date_key = dim_fecha.date_id"
+          },
+          {
+            "name": "dim_producto",
+            "source": "proyecto_final.gold.dim_producto",
+            "on": "source.product_key = dim_producto.product_id"
+          }
+        ]
+      }
+    }
+  ],
+  "pages": [
+    {
+      "name": "fd8a39a0",
+      "displayName": "dashboard",
+      "layout": [
+        {
+          "widget": {
+            "name": "ec0d085a",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2a3f5ec5",
+                  "fields": [
+                    {
+                      "name": "count(*)",
+                      "expression": "COUNT(`*`)"
+                    },
+                    {
+                      "name": "canal_venta",
+                      "expression": "`canal_venta`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "count(*)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "canal_venta",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": true
+                },
+                "extra": [
+                  {
+                    "fieldName": "canal_venta"
+                  }
+                ]
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 0,
+            "width": 4,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "7e2133b5",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2a3f5ec5",
+                  "fields": [
+                    {
+                      "name": "estado_pedido",
+                      "expression": "`estado_pedido`"
+                    },
+                    {
+                      "name": "measure(SUM_TOTAL)",
+                      "expression": "MEASURE(`SUM_TOTAL`)"
+                    },
+                    {
+                      "name": "canal_venta",
+                      "expression": "`canal_venta`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "mark": {
+                "layout": "percent-stack"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "measure(SUM_TOTAL)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "canal_venta",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "color": {
+                  "fieldName": "estado_pedido",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "extra": [
+                  {
+                    "fieldName": "estado_pedido"
+                  }
+                ]
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 0,
+            "width": 6,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "993c3c49",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2a3f5ec5",
+                  "fields": [
+                    {
+                      "name": "monthly(fecha)",
+                      "expression": "DATE_TRUNC(\"MONTH\", `fecha`)"
+                    },
+                    {
+                      "name": "measure(SUM_TOTAL)",
+                      "expression": "MEASURE(`SUM_TOTAL`)"
+                    },
+                    {
+                      "name": "segmento",
+                      "expression": "`segmento`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "facet": {
+                "type": "wrap",
+                "fieldName": "segmento",
+                "scale": {
+                  "type": "categorical"
+                }
+              },
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "monthly(fecha)",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "measure(SUM_TOTAL)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 13,
+            "width": 10,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "09cc84e4",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2a3f5ec5",
+                  "fields": [
+                    {
+                      "name": "subcategoria",
+                      "expression": "`subcategoria`"
+                    },
+                    {
+                      "name": "categoria",
+                      "expression": "`categoria`"
+                    },
+                    {
+                      "name": "count(*)",
+                      "expression": "COUNT(`*`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "mark": {
+                "layout": "group"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "categoria",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "natural-order"
+                    }
+                  }
+                },
+                "y": {
+                  "fieldName": "count(*)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "subcategoria",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "extra": [
+                  {
+                    "fieldName": "subcategoria"
+                  }
+                ]
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 7,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "cantidad-productos",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2a3f5ec5",
+                  "fields": [
+                    {
+                      "name": "measure(SUM QTY)",
+                      "expression": "MEASURE(`SUM QTY`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "CANTIDAD PRODUCTOS"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "measure(SUM QTY)"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 7,
+            "width": 4,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "5f4411ed",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2a3f5ec5",
+                  "fields": [
+                    {
+                      "name": "count(*)",
+                      "expression": "COUNT(`*`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "CANTIDAD VENTAS"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "count(*)"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 9,
+            "width": 4,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "a195e3cf",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2a3f5ec5",
+                  "fields": [
+                    {
+                      "name": "measure(SUM_TOTAL)",
+                      "expression": "MEASURE(`SUM_TOTAL`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "TOTAL VENTAS"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "measure(SUM_TOTAL)"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 11,
+            "width": 4,
+            "height": 2
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
