@@ -1,11 +1,5 @@
 # Data Engineering Project with Databricks Lakehouse
 
-![Databricks](https://img.shields.io/badge/Databricks-Lakehouse-red)
-![PySpark](https://img.shields.io/badge/PySpark-3.x-orange)
-![Unity Catalog](https://img.shields.io/badge/Unity%20Catalog-enabled-blue)
-![DLT](https://img.shields.io/badge/Lakeflow-Declarative%20Pipelines-green)
-![License](https://img.shields.io/badge/license-MIT-lightgrey)
-
 A complete **Data Engineering** project built on **Databricks** following the **Medallion Architecture (Bronze → Silver → Gold)**.
 
 The project demonstrates how to ingest raw data, perform cleansing and transformations, enforce data quality, build dimensional models, and orchestrate the entire workflow using **Databricks Asset Bundles** and **Spark Declarative Pipelines**.
