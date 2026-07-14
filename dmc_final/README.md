@@ -15,7 +15,7 @@ The project demonstrates how to ingest raw data, perform cleansing and transform
 # Architecture
 
 ```text
-                    Raw CSV Files
+                    Raw CSV,JSON Files
                           │
                           ▼
                  Landing Volume (Unity Catalog)
